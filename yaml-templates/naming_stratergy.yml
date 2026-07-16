@@ -1,0 +1,31 @@
+parameters:
+  - name: env
+    type: string
+
+  - name: location
+    type: string
+
+  - name: commonEnv
+    type: string
+
+  - name: appName
+    type: string
+
+  - name: instance
+    type: string
+    default: "01"
+
+variables:
+  resourceGroupName: 'rg-${{ lower(parameters.commonEnv) }}-${{ lower(parameters.appName) }}-${{ lower(parameters.env) }}-${{ lower(parameters.location) }}'
+
+  storageAccountName: 'st${{ lower(parameters.commonEnv) }}${{ lower(parameters.appName) }}${{ lower(parameters.env) }}${{ parameters.instance }}'
+
+  functionAppName: 'func-${{ lower(parameters.commonEnv) }}-${{ lower(parameters.appName) }}-${{ lower(parameters.env) }}-${{ parameters.instance }}'
+
+  logicAppName: 'la-${{ lower(parameters.commonEnv) }}-${{ lower(parameters.appName) }}-${{ lower(parameters.env) }}-${{ parameters.instance }}'
+
+  apimName: 'apim-${{ lower(parameters.commonEnv) }}-${{ lower(parameters.appName) }}-${{ lower(parameters.env) }}-${{ parameters.instance }}'
+
+  serviceBusName: 'sb-${{ lower(parameters.commonEnv) }}-${{ lower(parameters.appName) }}-${{ lower(parameters.env) }}-${{ parameters.instance }}'
+
+  appServiceName: 'app-${{ lower(parameters.commonEnv) }}-${{ lower(parameters.appName) }}-${{ lower(parameters.env) }}-${{ parameters.instance }}'
